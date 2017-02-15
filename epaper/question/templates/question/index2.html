@@ -1,0 +1,43 @@
+{% extends 'question/base.html' %}
+
+{% block title %}index1 page {% endblock %}
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="col-md-offset-2 col-sm-offset-2 col-sm-8 col-md-8 ">
+            <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="post" action="{%   url 'question:select_question'  %}">
+                            {# {%   url 'question:get_subject'  %}#}
+                            {%  csrf_token %}
+                            <div class="form-group">
+                            <label for="unit"> Select Unit:
+                            <select name='unit_id' class="dropdown" >
+                                {% for  detail in details %}
+                                    <option value="{{ detail.id }}">{{ detail.unit_title }}</option>
+                                {% endfor %}
+                            </select>
+                            </label>
+                            </div>
+                             <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Select">
+                            </label>
+                            </div>
+                        </form>
+
+
+                    </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'question/base.html' %}
+
+{% block body %}
+<style type="text/css">
+  	table,th,tr,td
+  	{
+      border: 2px solid black;
+  	}
+    th,#opt
+    {
+      text-align: center;
+      line-height: 8px;
+    }
+    #hdel
+    {
+     font-weight: bold;
+    }
+
+  </style>
+<div class="container">
+
+  <div class="row" > <!--  Paper Head -->
+  <DIV class="col-sm-6">
+  	 <h4><span id="hdel">Name.  </span>__________________</h4>
+     <h4><span id="hdel">Roll No.</span>_________________</h4>
+
+  </DIV>
+  <div class="col-sm-6">
+  <h4><span id="hdel">Sig. of Candidate.</span>_________________</h4>
+  <h4><span id="hdel">Sig. of invigilator.</span>_________________</h4>
+  </div>
+  </div>
+  <hr style="border-bottom:2px dotted black;">
+  <h3 id="opt">{{ unit_detail.subject.subject_title }} COMPULSORY SSC-II</h3>
+  <h3 id="opt">SECTION-A (MARKS-15)</h3>
+  <br>
+  <h5 id="hdel" style="border-bottom: 2px solid black;">TIME-ALLOWED:20 MINUTES</h5>
+
+
+
+
+<div class="row" style="margin-top:5%;">
+<table class="table table-reponsive"> <!-- Table -->
+
+<tr>  <!-- Table Head -->
+<th>Q</th>
+<th>Questions</th>
+<th>(A)</th>
+<th>(B)</th>
+<th>(C)</th>
+<th>(D)</th>
+</tr>
+
+<!-- Table Body -->
+     {% if details %}
+
+         {% for detail in details %}
+<tr>
+<td id="opt"></td>
+<td >{{ detail.question_statement }}</td>
+<td id="opt">{{ detail.option1 }}</td>
+<td id="opt">{{ detail.option2 }}</td>
+<td id="opt">{{ detail.option3 }}</td>
+<td id="opt">{{ detail.option4 }}</td>
+</tr>
+
+        {% endfor %}
+     {% endif %}
+</table>
+<!-- table end -->
+</div>
+
+
+
+
+  <!-- row -->
+
+
+</div><!-- content container -->
+
+{% endblock %}

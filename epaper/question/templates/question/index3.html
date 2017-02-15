@@ -1,0 +1,46 @@
+{% extends 'question/base.html' %}
+
+{% block title %}index page {% endblock %}
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+
+        <!-- Left Album Info -->
+        <div class="col-md-offset-2 col-sm-offset-2 col-sm-8 col-md-8 ">
+
+            {% if details %}
+            {% for detail in details %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <h4 class="col-md-offset-1">Q1: {{ detail.question_statement }}</h4>
+                        </div>
+                         <br>
+                        <div class="form-group">
+                            <label class="col-md-offset-2 col-md-4"><input type="checkbox" value="{{ detail.option1 }}"><span class="col-md-offset-1"> {{ detail.option1 }}</span></label>
+                            <label class="col-md-offset-2 col-md-4"><input type="checkbox" value="{{ detail.option2 }}"><span class="col-md-offset-1">{{ detail.option2 }}</span></label>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-md-offset-2 col-md-4"><input type="checkbox" value="{{ detail.option3 }}"><span class="col-md-offset-1">{{ detail.option3 }}</span></label>
+                            <label class="col-md-offset-2 col-md-4"><input type="checkbox" value="{{ detail.option4 }}"><span class="col-md-offset-1">{{ detail.option4 }}</span></label>
+                        </div>
+
+
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}
